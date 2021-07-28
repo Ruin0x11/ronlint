@@ -5,7 +5,7 @@ extern crate clap;
 
 use std::fs::File;
 use std::io::{self, Read};
-use anyhow::{anyhow, Result};
+use anyhow::Result;
 use clap::{Arg, App, crate_version, crate_authors};
 
 fn get_app<'a, 'b>() -> App<'a, 'b> {
@@ -39,7 +39,7 @@ fn run_app() -> Result<()> {
     match result {
         Ok(_) => Ok(()),
         Err(e) => {
-            println!("{}:{}", name, e);
+            println!("{}:{}:{}: [error] {}", name, e.position.line, e.position.col, e.code);
             Ok(())
         }
     }
