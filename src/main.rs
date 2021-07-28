@@ -40,7 +40,7 @@ fn run_app() -> Result<()> {
         Ok(_) => Ok(()),
         Err(e) => {
             println!("{}:{}", name, e);
-            Err(anyhow!("Errors found"))
+            Ok(())
         }
     }
 }
